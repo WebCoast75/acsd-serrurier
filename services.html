@@ -59,10 +59,6 @@ svg{display:block;max-width:100%}
 a:focus-visible,button:focus-visible{outline:3px solid var(--or-clair);outline-offset:3px}
 
 .marque{font-family:var(--titre);font-weight:700;letter-spacing:.02em;color:#fff}
-@supports ((-webkit-background-clip:text) or (background-clip:text)){
-  .marque{background-image:linear-gradient(180deg,#fff 0,#fff 42%,#C9D3E6 55%,#F4F7FC 72%,#fff 100%);
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-}
 
 header{position:sticky;top:0;z-index:50;background:rgba(10,19,48,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(212,175,55,.28)}
 .barre{display:flex;align-items:center;gap:12px;padding:11px var(--marge);max-width:1080px;margin:0 auto}
@@ -83,7 +79,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,19,48,.94);backdrop-f
 .metier-l{font-weight:800;font-size:clamp(13px,3.6vw,17px);letter-spacing:.16em;color:var(--creme)}
 .zone-l{margin-top:8px;font-weight:600;font-size:13px;letter-spacing:.1em;color:var(--or)}
 .accroche{margin-top:16px;font-weight:800;font-size:clamp(11px,3vw,13px);letter-spacing:.18em;color:var(--or)}
-.numero{display:block;margin:26px auto 6px;font-family:var(--titre);font-weight:700;font-size:clamp(36px,11vw,60px);text-decoration:none}
+.numero{display:block;margin:26px auto 6px;font-family:var(--titre);font-weight:700;font-size:clamp(36px,11vw,60px);text-decoration:none;text-shadow:0 2px 12px rgba(0,0,0,.5)}
 .sous{color:var(--brume);font-size:14px;max-width:44ch;margin:0 auto}
 .actions{display:flex;gap:11px;justify-content:center;flex-wrap:wrap;margin-top:22px}
 .btn{font-family:var(--titre);font-weight:700;font-size:17px;text-decoration:none;padding:14px 26px;}
