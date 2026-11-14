@@ -303,7 +303,7 @@ footer a{color:#E2BE62}
 .grand:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(15,30,61,.3)}
 .grand svg{width:50px;height:50px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .grand b{font-family:var(--titre);font-weight:800;font-size:clamp(19px,2.6vw,25px);line-height:1.12;text-transform:uppercase;letter-spacing:.01em}
-.grand small{font-size:14px;line-height:1.4}
+.grand small{font-size:14px;line-height:1.4;font-weight:700}
 .grand.urgence{background:linear-gradient(180deg,#E9C976,#C99A35 55%,#A9801F);color:#0F1E3D;border:2px solid #A9801F}
 .grand.urgence svg{stroke:#0F1E3D}
 .grand.urgence small{color:#2A2410}
@@ -426,7 +426,7 @@ footer a{color:#E2BE62}
         <span>Il s'ajoute aux trois dépannages signalés ci-dessus : porte claquée, porte fermée à clé et mise en sécurité après effraction. Les interventions sur devis le comprennent déjà. Si vous êtes à Bondy ou dans les environs, il ne vous est pas compté.</span>
       </div>
 
-    <p class="note"><b style="color:var(--or)">Majorations horaires :</b> 60 € le soir entre 20h et 00h, 90 € la nuit entre 00h01 et 6h30, 60 € le week-end et les jours fériés en journée. Le montant vous est annoncé au téléphone avant que je me déplace, et aucune majoration n'apparaît sur la facture sans avoir été portée au devis.</p>
+    <p class="note"><b style="color:var(--or)">Majorations horaires :</b> 60 € la nuit entre 21h et 6h30, 60 € le week-end et les jours fériés en journée. Le montant vous est annoncé au téléphone avant que je me déplace, et aucune majoration n'apparaît sur la facture sans avoir été portée au devis.</p>
   </div>
 </section>
 
@@ -458,8 +458,7 @@ footer a{color:#E2BE62}
           <select id="nuit">
             <option value="0">En journée, du lundi au vendredi — sans majoration</option>
             <option value="60">Week-end ou jour férié, en journée — 60 €</option>
-            <option value="60s">Le soir, entre 20h et 00h — 60 €</option>
-            <option value="90">La nuit, entre 00h01 et 6h30 — 90 €</option>
+            <option value="60n">La nuit, entre 21h et 6h30 — 60 €</option>
           </select></label>
       </fieldset>
 
@@ -526,8 +525,7 @@ footer a{color:#E2BE62}
   }
   function creneauMaintenant(){
     var d=new Date(), h=d.getHours()+d.getMinutes()/60, j=d.getDay();
-    if(h<6.5) return "90";            // nuit profonde, tous les jours
-    if(h>=20) return "60s";           // soiree
+    if(h<6.5||h>=21) return "60n";   // nuit 21h-6h30, tous les jours
     if(j===0||j===6||ferie(d)) return "60";   // week-end ou jour ferie en journee
     return "0";
   }
@@ -540,8 +538,7 @@ footer a{color:#E2BE62}
   function rendre(){
     var cas=document.querySelector('input[name=cas]:checked').value;
     var o=PRIX[cas], maj=parseInt(nuit.value,10)||0, h="";
-    var libMaj = nuit.value==='90' ? 'Majoration de nuit (00h01 — 6h30)'
-               : nuit.value==='60s' ? 'Majoration de soirée (20h — 00h)'
+    var libMaj = nuit.value==='60n' ? 'Majoration de nuit (21h — 6h30)'
                : 'Majoration week-end ou jour férié';
     fsz.style.display = o.dep ? '' : 'none';   // la question du lieu ne sert que si le déplacement est en sus
     if(o.p===null){
