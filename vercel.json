@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.acsd-serrurier.fr"
+        }
+      ],
+      "destination": "https://acsd-serrurier.fr/:path*",
+      "permanent": true
+    }
+  ]
+}
