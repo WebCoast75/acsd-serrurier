@@ -382,6 +382,11 @@ footer a{color:#E2BE62}
 main .hero .sous,main .hero p.sous{font-weight:700!important;color:#0F1E3D!important;font-size:16px!important}
 .hero .numero{font-weight:800}
 @media(max-width:600px){.hero .accroche{letter-spacing:.02em!important}.hero .zone-l{letter-spacing:.03em!important}}
+/*num-urgence*/
+.hero .numero{position:relative!important;overflow:hidden;display:inline-block!important;background:#0F1E3D!important;-webkit-text-fill-color:#F2CF6B!important;color:#F2CF6B!important;filter:none!important;padding:8px 18px!important;font-size:clamp(30px,8.6vw,54px)!important;font-weight:800;border-radius:14px;border:2px solid #C99A35;margin:22px auto 18px!important;box-shadow:0 6px 18px rgba(15,30,61,.25)}
+@media(prefers-reduced-motion:reduce){.hero .numero{animation:none!important}}
+.hero .numero{-webkit-text-fill-color:#FF3B3B!important;color:#FF3B3B!important;animation:numBat 1.6s ease-in-out infinite}
+@keyframes numBat{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 </style>
 <script type="application/ld+json">
 {
